@@ -34,25 +34,15 @@ body {
   padding: 15px;
 }
 
-.menu p {
-  margin: 10px 0;
-}
-
 .conteudo {
   flex: 1;
   padding: 20px;
 }
 
-.grid {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
 .card {
   background: white;
   border-radius: 6px;
-  width: 300px;
+  width: 320px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -89,7 +79,6 @@ button:hover {
   background: #6aa737;
 }
 </style>
-
 </head>
 
 <body>
@@ -107,25 +96,22 @@ button:hover {
 
     <h2>Validar Certidão</h2>
 
-    <div class="grid">
+    <div class="card">
+      <div class="card-header">Certidão do Imóvel</div>
+      <div class="card-body">
 
-      <div class="card">
-        <div class="card-header">Certidão do Imóvel</div>
-        <div class="card-body">
+        <label>Inscrição do Imóvel</label>
+        <input type="text" id="inscricao">
 
-          <label>Inscrição do Imóvel</label>
-          <input type="text" id="inscricao">
+        <label>Código de Validação</label>
+        <input type="text" id="codigo">
 
-          <label>Código de Validação</label>
-          <input type="text" id="codigo">
+        <!-- RECAPTCHA -->
+        <div class="g-recaptcha" data-sitekey="6Lcj9c0sAAAAAHC_oBDw_nGLGw8wsRmNce1VsVHQ"></div>
 
-          <div class="g-recaptcha" data-sitekey="6Lcj9c0sAAAAAHC_oBDw_nGLGw8wsRmNce1VsVHQ"></div>
+        <button onclick="validar()">Consultar</button>
 
-          <button onclick="validar()">Consultar</button>
-
-        </div>
       </div>
-
     </div>
 
   </div>
