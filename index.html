@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Validação de Certidão</title>
 
+<!-- RECAPTCHA -->
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <style>
@@ -14,6 +15,7 @@ body {
   background: #f5f5f5;
 }
 
+/* TOPO */
 .topo {
   background: #0f7f79;
   color: white;
@@ -22,10 +24,12 @@ body {
   font-weight: bold;
 }
 
+/* LAYOUT */
 .container {
   display: flex;
 }
 
+/* MENU LATERAL */
 .menu {
   width: 220px;
   background: #1f2d3d;
@@ -34,15 +38,32 @@ body {
   padding: 15px;
 }
 
+.menu h3 {
+  margin-top: 0;
+}
+
+.menu p {
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+/* CONTEÚDO */
 .conteudo {
   flex: 1;
   padding: 20px;
 }
 
+/* CARDS */
+.grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
 .card {
   background: white;
   border-radius: 6px;
-  width: 320px;
+  width: 300px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -79,6 +100,7 @@ button:hover {
   background: #6aa737;
 }
 </style>
+
 </head>
 
 <body>
@@ -87,31 +109,60 @@ button:hover {
 
 <div class="container">
 
+  <!-- MENU -->
   <div class="menu">
+    <h3>Menu</h3>
     <p>Início</p>
     <p>Validar Documento</p>
+    <p>Consultar</p>
   </div>
 
+  <!-- CONTEÚDO -->
   <div class="conteudo">
 
     <h2>Validar Certidão</h2>
 
-    <div class="card">
-      <div class="card-header">Certidão do Imóvel</div>
-      <div class="card-body">
+    <div class="grid">
 
-        <label>Inscrição do Imóvel</label>
-        <input type="text" id="inscricao">
+      <!-- IMÓVEL -->
+      <div class="card">
+        <div class="card-header">Certidão do Imóvel</div>
+        <div class="card-body">
 
-        <label>Código de Validação</label>
-        <input type="text" id="codigo">
+          <label>Inscrição do Imóvel</label>
+          <input type="text" id="inscricao" placeholder="Ex: 0000038394">
 
-        <!-- RECAPTCHA -->
-        <div class="g-recaptcha" data-sitekey="6Lcj9c0sAAAAAHC_oBDw_nGLGw8wsRmNce1VsVHQ"></div>
+          <label>Código de Validação</label>
+          <input type="text" id="codigo" placeholder="Digite o código">
 
-        <button onclick="validar()">Consultar</button>
+          <!-- RECAPTCHA -->
+          <div class="g-recaptcha" data-sitekey="6Lcj9c0sAAAAAHC_oBDw_nGLGw8wsRmNce1VsVHQ"></div>
 
+          <button onclick="validar()">Consultar</button>
+
+        </div>
       </div>
+
+      <!-- EMPRESA -->
+      <div class="card">
+        <div class="card-header">Certidão da Empresa</div>
+        <div class="card-body">
+          <input type="text" placeholder="Inscrição">
+          <input type="text" placeholder="Código">
+          <button>Consultar</button>
+        </div>
+      </div>
+
+      <!-- CONTRIBUINTE -->
+      <div class="card">
+        <div class="card-header">Certidão do Contribuinte</div>
+        <div class="card-body">
+          <input type="text" placeholder="CPF/CNPJ">
+          <input type="text" placeholder="Código">
+          <button>Consultar</button>
+        </div>
+      </div>
+
     </div>
 
   </div>
@@ -121,8 +172,8 @@ button:hover {
 <script>
 const documentos = [
   {
-    codigo: "0003E400A00000033692",
-    inscricao: "02737"
+    codigo: "0022C111A00000136345",
+    inscricao: "38394"
   }
 ];
 
